@@ -9,20 +9,20 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Upgrade",
+      href: "/dashboard/upgrade",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "Questions",
+      href: "/questions",
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: "HowItWorks",
+      href: "/howItWorks",
     },
     {
-      label: "About",
-      href: "/about",
+      label: "Dashboard",
+      href: "/dashboard",
     },
   ],
   navMenuItems: [
@@ -30,10 +30,7 @@ export const siteConfig = {
       label: "Profile",
       href: "/profile",
     },
-    {
-      label: "Dashboard",
-      href: "/dashboard",
-    },
+
     {
       label: "Projects",
       href: "/projects",
