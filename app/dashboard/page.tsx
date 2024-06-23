@@ -8,8 +8,8 @@ export default function dashboard() {
   return (
     <div className="">
       
-      <h2 className=" font-bold text-3xl text-[#EBF4F6]">Dashboard</h2>
-      <h2 className="text-gray-500">
+      <h2 className=" font-bold text-3xl text-[#37B7C3]">Dashboard</h2>
+      <h2 className="text-gray-400">
         Create and Start your AI Mockup Interview
       </h2>
 

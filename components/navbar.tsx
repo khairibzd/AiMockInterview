@@ -16,7 +16,7 @@ import { Input } from "@nextui-org/input";
 import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useAuth } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 
 import { siteConfig } from "@/config/site";
@@ -32,6 +32,9 @@ import Image from "next/image";
 
 export const Navbar = () => {
   const path = usePathname();
+  const { isSignedIn } = useAuth(); // or useUser if you need user details
+  const config = siteConfig(isSignedIn);
+
 
   return (
     <NextUINavbar
@@ -57,41 +60,41 @@ export const Navbar = () => {
               alt="totaltech"
             />
 
-            <p className="font-bold text-inherit ">AIINTERVIEW</p>
+            <p className="font-bold text-inherit ">MOCKINTERVIEW</p>
           </NextLink>
         </NavbarBrand>
       </NavbarContent>
 
       {/* <ul className="hidden lg:flex gap-4 justify-center items-center ml-2"> */}
-      <NavbarContent
-        className="hidden lg:flex gap-4 ml-2 basis-1/5 sm:basis-full"
-        justify="center"
-      >
-        {siteConfig.navItems.map((item) => (
-          <NavbarItem key={item.href}>
-            <NextLink
-              className={`hover:text-[#088395] hover:font-bold transition-all
-                  cursor-pointer
-                  ${path == item.href && "text-[#37B7C3] font-bold"}
-                  `}
-              href={item.href}
-            >
-              {item.label}
-            </NextLink>
-          </NavbarItem>
-        ))}
-        {/* </ul> */}
-      </NavbarContent>
+        <NavbarContent
+          className="hidden lg:flex gap-4 ml-2 basis-1/5 sm:basis-full"
+          justify="center"
+        >
+          {config.navItems.map((item) => (
+            <NavbarItem key={item.href}>
+              <NextLink
+                className={`hover:text-[#088395] hover:font-bold transition-all
+                    cursor-pointer
+                    ${path == item.href && "text-[#37B7C3] font-bold"}
+                    `}
+                href={item.href}
+              >
+                {item.label}
+              </NextLink>
+            </NavbarItem>
+          ))}
+          {/* </ul> */}
+        </NavbarContent>
 
       <NavbarContent
         className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
+          <Link isExternal aria-label="Twitter" href={config.links.twitter}>
             <TwitterIcon className="text-default-500" />
           </Link>
-          <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
+          <Link isExternal aria-label="Discord" href={config.links.discord}>
             <DiscordIcon className="text-default-500" />
           </Link>
           <UserButton />
@@ -106,13 +109,13 @@ export const Navbar = () => {
 
       <NavbarMenu>
         {/* <div className="mx-4 mt-2 flex flex-col gap-2 items-center"> */}
-          {siteConfig.navMenuItems.map((item, index) => (
+          {config.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
                 color={
                   index === 2
                     ? "primary"
-                    : index === siteConfig.navMenuItems.length - 1
+                    : index === config.navMenuItems.length - 1
                       ? "danger"
                       : "foreground"
                 }

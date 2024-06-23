@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
-import { AtomIcon, Edit, Link, Share2 } from "lucide-react";
+import { AtomIcon, Edit, Share2 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { FlipWords } from "@/components/aceternetyui/flip-words";
+import { cn } from "@/utils/cn";
 
 import {
   Card,
@@ -12,21 +13,37 @@ import {
   CardFooter,
 } from "@nextui-org/react";
 import { Boxes } from "@/components/aceternetyui/background-boxes";
+import GridPattern from "@/components/magicUi/grid-pattern";
+import Link from "next/link";
 
 export default function Home() {
   const words = ["TEACH IT", "TRY IT"];
   return (
     <div className="h-full relative w-full overflow-hidden bg-[#172554]">
-      <Boxes />
+      {/* <Boxes /> */}
+      <GridPattern
+        squares={[
+          [4, 4],
+          [5, 1],
+          [8, 2],
+          [6, 6],
+          [10, 5],
+          [13, 3],
+        ]}
+        className={cn(
+          "[mask-image:radial-gradient(700px_circle_at_center,white,transparent)]",
+          "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
+        )}
+      />
       <div className="fixed w-full z-20">
-      <Navbar/>
+        <Navbar />
       </div>
-     
+
       <section>
         <div className=" py-8 px-4 mx-auto max-w-screen-xl mt-10 text-center lg:py-16 lg:px-12">
           <a
             href="https://totaltechtn.com/"
-            className="relative inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-[#37B7C3] dark:text-white hover:bg-gray-200 dark:hover:bg-[#071952]"
+            className="relative inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm   rounded-full bg-[#37B7C3] text-white  hover:bg-[#071952]"
             role="alert"
           >
             <span className="text-xs bg-[#088395] rounded-full text-white px-4 py-1.5 mr-3">
@@ -54,9 +71,12 @@ export default function Home() {
             interview prep
           </p>
           <div className="relative flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+            <Link href={'/dashboard'}>
             <button className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[#37B7C3] px-8 py-2 bg-[#37B7C3] rounded-md text-white font-light transition duration-200 ease-linear">
               Get started
             </button>
+            </Link>
+            
             <button className="shadow-[0_4px_14px_0_rgb(0,0,0,10%)] hover:shadow-[0_6px_20px_rgba(93,93,93,23%)] px-8 py-2 bg-[#fff] text-[#071952] rounded-md font-light transition duration-200 ease-linear border border-gray-400">
               Watch video
             </button>
@@ -66,10 +86,7 @@ export default function Home() {
               FEATURED IN
             </span>
             <div className="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
-              <a
-                href="#"
-                className="mr-5 mb-5 lg:mb-0  :hover:text-gray-400"
-              >
+              <a href="#" className="mr-5 mb-5 lg:mb-0  :hover:text-gray-400">
                 <svg
                   className="h-8"
                   viewBox="0 0 132 29"
@@ -191,7 +208,6 @@ export default function Home() {
                 laudantium.
               </p>
             </CardBody>
-           
           </Card>
           <Card className="max-w-[400px] border-none bg-[#088395]">
             <CardHeader className="flex gap-3 text-[#071952] font-bold">

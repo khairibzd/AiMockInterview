@@ -8,15 +8,16 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans, roboto } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider, useAuth } from "@clerk/nextjs";
 import { Boxes } from "@/components/aceternetyui/background-boxes";
+
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+    default: "test",
+    template: "%s - test",
   },
-  description: siteConfig.description,
+  description: "test",
   icons: {
     icon: "/favicon.ico",
   },

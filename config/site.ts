@@ -1,6 +1,6 @@
 export type SiteConfig = typeof siteConfig;
 
-export const siteConfig = {
+export const siteConfig = (isAuthenticated: any) => ({
   name: "Next.js + NextUI",
   description: "Make beautiful websites regardless of your design experience.",
   navItems: [
@@ -8,10 +8,14 @@ export const siteConfig = {
       label: "Home",
       href: "/",
     },
-    {
-      label: "Upgrade",
-      href: "/dashboard/upgrade",
-    },
+    ...(isAuthenticated
+      ? [
+          {
+            label: "Upgrade",
+            href: "/dashboard/upgrade",
+          },
+        ]
+      : []),
     {
       label: "Questions",
       href: "/questions",
@@ -27,33 +31,28 @@ export const siteConfig = {
   ],
   navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
+      label: "Home",
+      href: "/",
     },
-
+    ...(isAuthenticated
+      ? [
+          {
+            label: "Upgrade",
+            href: "/dashboard/upgrade",
+          },
+        ]
+      : []),
     {
-      label: "Projects",
-      href: "/projects",
-    },
-    {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
+      label: "Questions",
+      href: "/questions",
     },
     {
-      label: "Help & Feedback",
-      href: "/help-feedback",
+      label: "HowItWorks",
+      href: "/howItWorks",
     },
     {
-      label: "Logout",
-      href: "/logout",
+      label: "Dashboard",
+      href: "/dashboard",
     },
   ],
   links: {
@@ -63,4 +62,4 @@ export const siteConfig = {
     discord: "https://discord.gg/9b6yyZKmH4",
     sponsor: "https://patreon.com/jrgarciadev",
   },
-};
+});
