@@ -108,7 +108,7 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarMenu>
-        <div className="mx-4 mt-2 flex flex-col gap-2 items-center">
+        {/* <div className="mx-4 mt-2 flex flex-col gap-2 items-center"> */}
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
@@ -126,7 +126,7 @@ export const Navbar = () => {
               </Link>
             </NavbarMenuItem>
           ))}
-        </div>
+        {/* </div> */}
       </NavbarMenu>
     </NextUINavbar>
   );

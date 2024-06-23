@@ -47,7 +47,7 @@ export default function RootLayout({
         
         <body className={roboto.className}>
           
-          <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
+          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
             {/* <div className="relative flex flex-col min-h-screen  "> */}
             {/* <AppBgImg /> */}
             {/* <div className="fixed z-10 w-full">

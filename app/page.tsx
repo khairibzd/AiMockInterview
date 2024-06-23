@@ -3,8 +3,7 @@ import Image from "next/image";
 import { AtomIcon, Edit, Link, Share2 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { FlipWords } from "@/components/aceternetyui/flip-words";
-import { Spotlight } from "@/components/aceternetyui/spotlight";
-import { Vortex } from "@/components/aceternetyui/vortex";
+
 import {
   Card,
   CardHeader,
