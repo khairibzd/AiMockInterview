@@ -123,7 +123,7 @@ function RecordANswerSection({
           zIndex: 10,
         }}
       />
-      <Button disabled={loading} className="bg-[#37B7C3] mb-4" onClick={StartStopRecording}>
+      <Button disabled={loading} className="bg-[#37B7C3] mb-4 mt-3" onClick={StartStopRecording}>
         {isRecording ? (
           <h2 className="text-red-600 animate-pulse flex gap-2 items-center">
             <StopCircle />

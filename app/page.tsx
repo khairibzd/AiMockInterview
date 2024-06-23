@@ -46,10 +46,10 @@ export default function Home() {
               ></path>
             </svg>
           </a>
-          <h1 className="relative mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          <h1 className="relative mb-4 text-4xl font-extrabold tracking-tight leading-none  md:text-5xl lg:text-6xl text-white">
             U CAN'T MASTER IT IF U CAN'T <br /> <FlipWords words={words} />
           </h1>
-          <p className="relative mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
+          <p className="relative mb-8 text-lg font-normal  lg:text-xl sm:px-16 xl:px-48 text-gray-400">
             Double your chances of landing that job offer with our AI-powered
             interview prep
           </p>
@@ -68,7 +68,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
               <a
                 href="#"
-                className="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400"
+                className="mr-5 mb-5 lg:mb-0  :hover:text-gray-400"
               >
                 <svg
                   className="h-8"
@@ -177,7 +177,7 @@ export default function Home() {
         </h2>
 
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-          <Card className="max-w-[400px] border-none dark:bg-[#088395]">
+          <Card className="max-w-[400px] border-none bg-[#088395]">
             <CardHeader className="flex gap-3 text-[#071952] font-bold">
               <AtomIcon className="h-8 w-8" />
               <h2 className="mt-4 text-xl font-bold">
@@ -193,7 +193,7 @@ export default function Home() {
             </CardBody>
            
           </Card>
-          <Card className="max-w-[400px] border-none dark:bg-[#088395]">
+          <Card className="max-w-[400px] border-none bg-[#088395]">
             <CardHeader className="flex gap-3 text-[#071952] font-bold">
               <Edit className="h-8 w-8" />
               <h2 className="mt-4 text-xl font-bold">Edit your form </h2>
@@ -206,7 +206,7 @@ export default function Home() {
               </p>
             </CardBody>
           </Card>
-          <Card className="max-w-[400px] border-none dark:bg-[#088395]">
+          <Card className="max-w-[400px] border-none bg-[#088395]">
             <CardHeader className="flex gap-3 text-[#071952] font-bold">
               <Share2 className="h-8 w-8" />
               <h2 className="mt-4  text-xl font-bold">

@@ -20,7 +20,6 @@ import { UserButton } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 
 import { siteConfig } from "@/config/site";
-import { ThemeSwitch } from "@/components/theme-switch";
 import {
   TwitterIcon,
   GithubIcon,
@@ -95,7 +94,6 @@ export const Navbar = () => {
           <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
             <DiscordIcon className="text-default-500" />
           </Link>
-          <ThemeSwitch />
           <UserButton />
         </NavbarItem>
       </NavbarContent>
@@ -103,7 +101,6 @@ export const Navbar = () => {
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
         <UserButton />
 
-        <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
 
