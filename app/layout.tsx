@@ -10,6 +10,7 @@ import { fontSans, roboto } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import { ClerkProvider, useAuth } from "@clerk/nextjs";
 import { Boxes } from "@/components/aceternetyui/background-boxes";
+import { dark, neobrutalism, shadesOfPurple } from '@clerk/themes';
 
 
 export const metadata: Metadata = {
@@ -36,7 +37,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+    >
       <html lang="en" className="scroll-smooth">
         <head>
           <script

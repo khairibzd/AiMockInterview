@@ -17,21 +17,28 @@ type Props = {
 function PlanItemCard({ plan }: Props) {
   const { user } = useUser();
   return (
-    <Card className="max-w-[400px] border-none  bg-blue-100">
-      <CardHeader className="flex gap-3 text-[#071952] font-bold items-center justify-center">
+    <Card className="max-w-[400px] border-none text-white" style={{
+      background: "rgba(171, 171, 180, 0.1)",
+      boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
+      backdropFilter: "blur(20px)",
+      WebkitBackdropFilter: "blur(20px)",
+      borderRadius: "10px",
+      border: "1px solid rgba(255, 255, 255, 0.18)",
+    }}>
+      <CardHeader className="flex gap-3  font-bold items-center justify-center">
         <div className="text-center">
-          <h2 className="text-lg font-medium text-gray-900">
+          <h2 className="text-lg font-medium ">
             {plan.name}
             <span className="sr-only">Plan</span>
           </h2>
 
           <p className="mt-2 sm:mt-4">
-            <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">
+            <strong className="text-3xl font-bold  sm:text-4xl">
               {" "}
               {plan.cost}${" "}
             </strong>
 
-            <span className="text-sm font-medium text-gray-700">/month</span>
+            <span className="text-sm font-medium ">/month</span>
           </p>
         </div>
       </CardHeader>
@@ -39,7 +46,7 @@ function PlanItemCard({ plan }: Props) {
         <ul className="mt-6 space-y-2">
           {plan.offering.map((item, index) => (
             <li className="flex items-center gap-1 mb-2">
-              <h2 className="text-gray-700">{item.value}</h2>
+              <h2 className="">{item.value}</h2>
             </li>
           ))}
         </ul>
@@ -53,7 +60,7 @@ function PlanItemCard({ plan }: Props) {
           }
           target="_blank"
         >
-          <Button className="bg-[#071952]">Get Started</Button>
+          <Button className="bg-[#37B7C3]">Get Started</Button>
         </a>
       </CardFooter>
     </Card>

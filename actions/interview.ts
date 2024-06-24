@@ -46,16 +46,15 @@ export const insertUserAnswer = async (
   userEmail: string,
   createdAt: string
 ) => {
-
   try {
-  const interviewData = await client.mockInterview.findUnique({
-    where: { mockId: mockIdRef } // Replace 'your-mock-id' with the actual mockId you want to reference
-  });
+    const interviewData = await client.mockInterview.findUnique({
+      where: { mockId: mockIdRef }, // Replace 'your-mock-id' with the actual mockId you want to reference
+    });
 
-  if (!interviewData) {
-    throw new Error('MockInterview not found');
-  }
-  
+    if (!interviewData) {
+      throw new Error("MockInterview not found");
+    }
+
     const newUserAnswer = await client.userAnswer.create({
       data: {
         mockIdRef,
@@ -70,7 +69,7 @@ export const insertUserAnswer = async (
     });
 
     if (newUserAnswer) {
-      return { status: 200};
+      return { status: 200 };
     }
   } catch (error) {
     console.error("Error inserting mock interview:", error);
@@ -78,10 +77,7 @@ export const insertUserAnswer = async (
   }
 };
 
-
-
 export const getInterviewDetails = async (interviewId: string) => {
-  
   try {
     const result = await client.mockInterview.findUnique({
       where: { mockId: interviewId },
@@ -106,8 +102,6 @@ export const getInterviewDetails = async (interviewId: string) => {
   }
 };
 
-
-
 export const getFeedbackDetails = async (interviewId: string) => {
   try {
     const result = await client.userAnswer.findMany({
@@ -115,7 +109,7 @@ export const getFeedbackDetails = async (interviewId: string) => {
         mockIdRef: interviewId,
       },
       orderBy: {
-        id: 'asc',
+        id: "asc",
       },
     });
     return result; // Return the array directly
@@ -132,7 +126,7 @@ export const getInterviewList = async (createdBy: string) => {
         createdBy: createdBy,
       },
       orderBy: {
-        id: 'desc',
+        id: "desc",
       },
     });
     return result; // Return the array directly
@@ -140,4 +134,18 @@ export const getInterviewList = async (createdBy: string) => {
     console.error("Error fetching interview details:", error);
     throw new Error("Error fetching interview details");
   }
-}
+};
+
+export const DeleteInterview = async (interviewId: string) => {
+  try {
+    const result = await client.mockInterview.delete({
+      where: { mockId: interviewId },
+      
+    });
+    console.log('this is the result',result)
+    return { status: 200, message: "Interview deleted successfully", result };
+  } catch (error) {
+    console.error("Error deleting interview:", error);
+    return { status: 500, message: "Error deleting interview" };
+  }
+};
