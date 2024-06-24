@@ -118,9 +118,12 @@ function RecordANswerSection({
       <Webcam
         mirrored={true}
         style={{
-          height: 300,
-          width: 400,
+          height: 350,
+          width: 550,
           zIndex: 10,
+          borderRadius: "10px", // This makes the webcam view rounded
+          objectFit: "cover", // This ensures the video covers the entire circle
+          marginBottom: "20px",
         }}
       />
       <Button disabled={loading} className="bg-[#37B7C3] mb-4 mt-3" onClick={StartStopRecording}>

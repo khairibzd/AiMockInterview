@@ -50,7 +50,7 @@ function Start({ params }: Props) {
       interviewData={interviewData as MockInterviewData}
     />
   </div>
-  <div className="flex justify-center gap-4 mb-3">
+  <div className="flex justify-end gap-4 mb-3">
     {activeQuestionIndex > 0 && (
       <Button
         onClick={() => setActiveQuestionIndex(activeQuestionIndex - 1)}

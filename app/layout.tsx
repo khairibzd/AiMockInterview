@@ -14,12 +14,12 @@ import { Boxes } from "@/components/aceternetyui/background-boxes";
 
 export const metadata: Metadata = {
   title: {
-    default: "test",
-    template: "%s - test",
+    default: "toteltech Ai interview",
+    template: "%s - toteltech Ai interview",
   },
-  description: "test",
+  description: "toteltech Ai mock interview U CAN'T MASTER IT IF U CAN'T  TRY IT",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/totaltech.png",
   },
 };
 

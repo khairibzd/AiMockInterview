@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import moment from "moment";
 
@@ -21,6 +21,7 @@ import { LoaderCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { chatSession } from "@/utils/geminiAiModel";
 import { insertMockInterview } from "@/actions/interview";
+import useResponsiveSize from "@/hooks/useResponsiveSize";
 
 type Props = {};
 
@@ -35,6 +36,8 @@ const AddNewInterview = (props: Props) => {
 
   const { user } = useUser();
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+
+  const size = useResponsiveSize();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -75,6 +78,7 @@ const AddNewInterview = (props: Props) => {
     }
     setLoading(false);
   };
+
   return (
     <div>
       <div
@@ -90,6 +94,7 @@ const AddNewInterview = (props: Props) => {
         Open Modal
       </Button> */}
       <Modal
+        size={size}
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         placement="top-center"
@@ -99,7 +104,9 @@ const AddNewInterview = (props: Props) => {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1 ">
-                <p className="text-[#071952] font-extrabold text-xl">Tell us more about your job interviwing</p>
+                <p className="text-[#071952] font-extrabold text-xl">
+                  Tell us more about your job interviwing
+                </p>
               </ModalHeader>
               <ModalBody>
                 <form onSubmit={onSubmit}>
@@ -124,7 +131,6 @@ const AddNewInterview = (props: Props) => {
                         placeholder="Ex. React, Angular, NodeJs, MySql etc"
                         required
                         color="primary"
-
                         onChange={(event) => setJobDesc(event.target.value)}
                       />
                     </div>
@@ -135,7 +141,6 @@ const AddNewInterview = (props: Props) => {
                         type="number"
                         max="100"
                         color="primary"
-
                         required
                         onChange={(event) =>
                           setJobExperience(event.target.value)
@@ -144,10 +149,18 @@ const AddNewInterview = (props: Props) => {
                     </div>
                   </div>
                   <div className="flex gap-5 justify-end">
-                    <Button type="button" className="bg-[#c2eaf3] text-[#071952]" onPress={onClose}>
+                    <Button
+                      type="button"
+                      className="bg-[#c2eaf3] text-[#071952]"
+                      onPress={onClose}
+                    >
                       Cancel
                     </Button>
-                    <Button type="submit" className="bg-[#071952]" disabled={loading}>
+                    <Button
+                      type="submit"
+                      className="bg-[#071952]"
+                      disabled={loading}
+                    >
                       {loading ? (
                         <>
                           <LoaderCircle className="animate-spin" /> Generating

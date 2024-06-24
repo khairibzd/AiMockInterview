@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { AtomIcon, Edit, Share2 } from "lucide-react";
+import { ArrowUpRight, AtomIcon, Edit, Share2 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { FlipWords } from "@/components/aceternetyui/flip-words";
 import { cn } from "@/utils/cn";
@@ -11,11 +11,11 @@ import {
   Divider,
   CardBody,
   CardFooter,
+  Button,
 } from "@nextui-org/react";
 import { Boxes } from "@/components/aceternetyui/background-boxes";
 import GridPattern from "@/components/magicUi/grid-pattern";
 import Link from "next/link";
-
 export default function Home() {
   const words = ["TEACH IT", "TRY IT"];
   return (
@@ -71,15 +71,18 @@ export default function Home() {
             interview prep
           </p>
           <div className="relative flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            <Link href={'/dashboard'}>
-            <button className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[#37B7C3] px-8 py-2 bg-[#37B7C3] rounded-md text-white font-light transition duration-200 ease-linear">
-              Get started
-            </button>
+            <Link
+              href={"/dashboard"}
+              className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[#37B7C3] px-8 py-2 bg-[#37B7C3] rounded-md text-white font-light transition duration-200 ease-linear"
+            >
+              <button>Get started</button>
             </Link>
-            
-            <button className="shadow-[0_4px_14px_0_rgb(0,0,0,10%)] hover:shadow-[0_6px_20px_rgba(93,93,93,23%)] px-8 py-2 bg-[#fff] text-[#071952] rounded-md font-light transition duration-200 ease-linear border border-gray-400">
-              Watch video
-            </button>
+            <Link
+              href={"#"}
+              className="shadow-[0_4px_14px_0_rgb(0,0,0,10%)] hover:shadow-[0_6px_20px_rgba(93,93,93,23%)] px-8 py-2 bg-[#fff] text-[#071952] rounded-md font-light transition duration-200 ease-linear border border-gray-400"
+            >
+              <button>Watch video</button>
+            </Link>
           </div>
           <div className="relative px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
             <span className="font-semibold text-gray-400 uppercase">
@@ -187,60 +190,60 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="py-8  z-0 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+      <section className="py-8 z-0 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
         <h2 className="relative font-bold text-3xl">How it Works?</h2>
         <h2 className="relative text-md text-gray-400">
-          Give mock interview in just 3 simplar easy step
+          Give mock interview in just 3 simple easy steps
         </h2>
 
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-          <Card className="max-w-[400px] border-none bg-[#088395]">
-            <CardHeader className="flex gap-3 text-[#071952] font-bold">
-              <AtomIcon className="h-8 w-8" />
-              <h2 className="mt-4 text-xl font-bold">
-                Write promot for your form
-              </h2>
-            </CardHeader>
-            <CardBody className="items-center text-center">
-              <p className="mt-1 text-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut
-                quo possimus adipisci distinctio alias voluptatum blanditiis
-                laudantium.
-              </p>
-            </CardBody>
-          </Card>
-          <Card className="max-w-[400px] border-none bg-[#088395]">
-            <CardHeader className="flex gap-3 text-[#071952] font-bold">
-              <Edit className="h-8 w-8" />
-              <h2 className="mt-4 text-xl font-bold">Edit your form </h2>
-            </CardHeader>
-            <CardBody className="items-center text-center">
-              <p className="mt-1 text-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut
-                quo possimus adipisci distinctio alias voluptatum blanditiis
-                laudantium.
-              </p>
-            </CardBody>
-          </Card>
-          <Card className="max-w-[400px] border-none bg-[#088395]">
-            <CardHeader className="flex gap-3 text-[#071952] font-bold">
-              <Share2 className="h-8 w-8" />
-              <h2 className="mt-4  text-xl font-bold">
-                Share & start accepting responses
-              </h2>
-            </CardHeader>
-            <CardBody className="items-center text-center">
-              <p className="mt-1 text-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut
-                quo possimus adipisci distinctio alias voluptatum blanditiis
-                laudantium.
-              </p>
-            </CardBody>
-          </Card>
+        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {[
+            "Write prompt for your form",
+            "Edit your form",
+            "Share & accept responses ",
+          ].map((title, index) => (
+            <Card
+              key={index}
+              className="w-full border-none mx-auto"
+              style={{
+                background: "rgba(171, 171, 180, 0.1)",
+                boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                borderRadius: "10px",
+                border: "1px solid rgba(255, 255, 255, 0.18)",
+              }}
+            >
+              <CardHeader className="flex items-center gap-3 text-white font-bold">
+                {index === 0 && <AtomIcon className="h-8 w-8" />}
+                {index === 1 && <Edit className="h-8 w-8" />}
+                {index === 2 && <Share2 className="h-8 w-8" />}
+                <h2 className="text-xl font-bold">{title}</h2>
+              </CardHeader>
+              <CardBody className="flex flex-col items-center text-center">
+                <p className="mt-1 text-sm">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut
+                  quo possimus adipisci distinctio alias voluptatum blanditiis
+                  laudantium.
+                </p>
+              </CardBody>
+              <CardFooter className="flex justify-center items-center text-center">
+                <Link
+                  href="https://github.com/nextui-org/nextui"
+                  className="inline-flex items-center text-[#37B7C3]"
+                >
+                  <span>Get Started</span>
+                  <span className="ml-1 mb-1">
+                    <ArrowUpRight />
+                  </span>
+                </Link>
+              </CardFooter>
+            </Card>
+          ))}
         </div>
 
         <div className="mt-12 text-center">
-          <button className="relative shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[#EBF4F6] px-16 py-2 bg-[#EBF4F6] rounded-md text-[#071952] font-light transition duration-200 ease-linear">
+          <button className="relative shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[#EBF4F6] px-16 py-2 bg-[#37B7C3] rounded-md text-[#EBF4F6] font-light transition duration-200 ease-linear">
             Get started today
           </button>
         </div>
